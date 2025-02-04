@@ -3,7 +3,7 @@ import csv
 import json
 
 
-def execute_api_request(url: str, method: str = "GET", params: dict = None, data: dict = None) -> dict:
+def executeAPIRequestequest(url: str, method: str = "GET", params: dict = None, data: dict = None) -> dict:
     try:
         # Faire la requête GET ou POST en fonction de la méthode
         if method.upper() == "GET":
@@ -27,7 +27,7 @@ def execute_api_request(url: str, method: str = "GET", params: dict = None, data
         return {"error": f"Erreur lors de la requête: {str(e)}"}
 
 # Lire le fichier CSV et modifier son contenu
-def modifierCSV(FIlePath: str, FinalFile: str):
+def modifuCSV(FIlePath: str, FinalFile: str):
     with open(FIlePath, mode="r", newline="", encoding="utf-8") as fichier_entree:
         lecteur_csv = csv.reader(fichier_entree)
         donnees = list(lecteur_csv)
@@ -93,18 +93,16 @@ params = {"userId": 1}
 data = {"title": "foo", "body": "bar", "userId": 1}
 
 # GET
-getResult = execute_api_request(url, method="GET", params=params)
+getResult = executeAPIRequestequest(url, method="GET", params=params)
 print(getResult)
 
 # POST
-postResult = execute_api_request(url, method="POST", data=data)
+postResult = executeAPIRequestequest(url, method="POST", data=data)
 print(postResult)
 
 # --------------------------------------------------------------- #
 
-fichier_original = "username.csv"
-fichier_modifie = "donnees_modifiees.csv"
-modifierCSV(fichier_original, fichier_modifie)
+modifuCSV("username.csv", "donnees_modifiees.csv")
 
 # --------------------------------------------------------------- #
 
