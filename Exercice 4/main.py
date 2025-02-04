@@ -7,7 +7,7 @@ def main():
     validator.askUserForHisIP()
     print('----------------------------------------------------')
 
-    client = Client(name="Leblond", firstName="Tristan", ID="69420")
+    client = Client( ID="69420", firstName="Tristan", name="Leblond")
     bankAccount = BankAccount(owner=client.ID, balance=100)
     accountManager = AccountManager(client, bankAccount)
 
@@ -17,6 +17,7 @@ def main():
     accountManager.withdraw(50)
     accountManager.showInfos()
     accountManager.withdraw(1000)
+    accountManager.deposit(999999750) # 💲💲💲
     print('----------------------------------------------------')
 
 if __name__ == "__main__":

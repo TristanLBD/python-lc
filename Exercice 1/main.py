@@ -27,8 +27,12 @@ def validateMultipleIPs(IPs: dict[str, str]) -> dict[str, dict[str, str]]:
         }
     return result
 
-userIP = input("Quelle est ton adresse IP ? ")
-print(f"Ton adresse IP est '{userIP}', elle est considérée comme {validateIP(userIP)}.")
+
+def askUserForHisIP():
+    userIP = input("Quelle est ton adresse IP ? ")
+    print(f"Ton adresse IP est '{userIP}', elle est considérée comme {validateIP(userIP)}.")
+# userIP = input("Quelle est ton adresse IP ? ")
+# print(f"Ton adresse IP est '{userIP}', elle est considérée comme {validateIP(userIP)}.")
 
 IPDictionnary = {
     "host1": "192.168.1.1",

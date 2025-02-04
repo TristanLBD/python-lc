@@ -3,7 +3,7 @@ import csv
 import json
 
 
-def executeAPIRequestequest(url: str, method: str = "GET", params: dict = None, data: dict = None) -> dict:
+def executeAPIRequest(url: str, method: str = "GET", params: dict = None, data: dict = None) -> dict:
     try:
         # Faire la requête GET ou POST en fonction de la méthode
         if method.upper() == "GET":
@@ -27,7 +27,7 @@ def executeAPIRequestequest(url: str, method: str = "GET", params: dict = None, 
         return {"error": f"Erreur lors de la requête: {str(e)}"}
 
 # Lire le fichier CSV et modifier son contenu
-def modifuCSV(FIlePath: str, FinalFile: str):
+def modifyCSV(FIlePath: str, FinalFile: str):
     with open(FIlePath, mode="r", newline="", encoding="utf-8") as fichier_entree:
         lecteur_csv = csv.reader(fichier_entree)
         donnees = list(lecteur_csv)
@@ -85,7 +85,6 @@ def exportToCsv(data: dict[int, str], outputFilePath: str):
     except Exception as e:
         print(f"Erreur lors de l'exportation CSV : {e}")
 
-
 # --------------------------------------------------------------- #
 
 url = "https://jsonplaceholder.typicode.com/posts"
@@ -93,20 +92,20 @@ params = {"userId": 1}
 data = {"title": "foo", "body": "bar", "userId": 1}
 
 # GET
-getResult = executeAPIRequestequest(url, method="GET", params=params)
+getResult = executeAPIRequest(url, method="GET", params=params)
 print(getResult)
 
 # POST
-postResult = executeAPIRequestequest(url, method="POST", data=data)
-print(postResult)
+# postResult = executeAPIRequest(url, method="POST", data=data)
+# print(postResult)
 
 # --------------------------------------------------------------- #
 
-modifuCSV("username.csv", "donnees_modifiees.csv")
+# modifyCSV("username.csv", "donnees_modifiees.csv")
 
 # --------------------------------------------------------------- #
 
-fileData = storeFileContentInDictionnary("file.txt")
-exportToCsv(fileData, "fichier-cree.csv")
+# fileData = storeFileContentInDictionnary("file.txt")
+# exportToCsv(fileData, "fichier-cree.csv")
 
 # --------------------------------------------------------------- #
