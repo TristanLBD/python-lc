@@ -1,0 +1,4 @@
+Bonjour, 
+voivi le texte à modifier 
+en python pour 
+l'exercice 3.
