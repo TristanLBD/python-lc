@@ -1,12 +1,12 @@
 from fastapi import FastAPI, HTTPException
-from Deck.Deck import Deck
-from Dealer.Dealer import Dealer
+from Deck import Deck
+from Dealer import Dealer
 
 app = FastAPI()
 
 @app.get("/")
 def read_root():
-    return {"message": "Bienvenue sur FastAPI"}
+    return {"message": "FastAPI est en fonctionnement"}
 
 @app.get("/newDeck")
 def get_deck():
@@ -22,10 +22,3 @@ def deal_cards(player_number: int):
     dealer = Dealer(player_number)
     hands = dealer.getHands()
     return {"hands": hands}
-
-    # if num_players < 2 or num_players > 10:
-    #     raise HTTPException(status_code=400, detail="Le nombre de joueurs doit être compris entre 2 et 10.")
-
-    # deck = Deck()
-    # hands, remaining = deck.deal(num_players)
-    # return {"hands": hands, "remaining": remaining}
