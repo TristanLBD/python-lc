@@ -20,9 +20,12 @@ class PlayerHand(Base):
     game_id = Column(Integer, ForeignKey("games.id"))
     player_name = Column(String, nullable=False)
     cards = Column(String, nullable=False)
+    colors = Column(String, nullable=False)
+
     game = relationship("Game", back_populates="hands")
 
 Game.hands = relationship("PlayerHand", back_populates="game")
 
-# Création des tables
+# Création des tables dans la base de données
 Base.metadata.create_all(bind=engine)
+print("Les tables ont été créées avec succès !")

@@ -3,11 +3,7 @@ from PlayingCard import PlayingCard
 
 class Deck:
     def __init__(self):
-        self.__cards = []
-        for suit in PlayingCard.SUITS:
-            for rank in PlayingCard.RANKS:
-                card = PlayingCard(rank, suit)
-                self.__cards.append(card)
+        self.__cards = [PlayingCard(rank, suit) for suit in PlayingCard.SUITS for rank in PlayingCard.RANKS]
 
     def shuffle(self):
         random.shuffle(self.__cards)
@@ -19,12 +15,9 @@ class Deck:
 
     def remainingCards(self):
         return len(self.__cards)
-    
-    def size(self):
-        return len(self.__cards)
-    
+
     def __str__(self):
-        message = f"Le paquet contient {len(self.__cards)} cartes:\n"
-        for card in self.__cards:
-            message += str(card) + "\n"
-        return message
+        return "\n".join(str(card) for card in self.__cards)
+
+    def get_cards(self):
+        return [{"rank": card.rank, "suit": card.suit, "color": card.color} for card in self.__cards]
